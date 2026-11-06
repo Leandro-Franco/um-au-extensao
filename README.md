@@ -43,7 +43,7 @@ SimplesVet (aba do navegador)
 
 ## Diferenciais técnicos
 
-| | |
+| Destaque | Como foi feito |
 |---|---|
 | **Humano no controle** | Máquina de estados explícita (`IDLE → AGUARDANDO_CAPTURA → CAPTURADO → ENVIANDO → ENVIADO/ERRO`) e nenhum envio automático: capturar e enviar são dois cliques separados. |
 | **Fora do CSP da página** | O `fetch` para o webhook roda no script de fundo da extensão, não na página do sistema — a política de segurança do site hospedeiro não bloqueia o envio. |
