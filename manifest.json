@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "um - AU",
+  "version": "1.0.2",
+  "description": "Captura dados de atendimento clínico e envia para um webhook configurável.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "um-au@exemplo.dev",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": ["healthInfo", "personallyIdentifyingInfo"]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://app.simples.vet/*",
+    "https://seu-n8n.exemplo.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://app.simples.vet/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "um - AU — Configurações"
+  }
+}
